@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadernos de Otimização</title>
+<meta name="description" content="Projetos construídos na disciplina de Otimização com Metaheurísticas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: 'var(--bg)',
+          ink: 'var(--ink)',
+          soft: 'var(--ink-soft)',
+          line: 'var(--line)',
+          accent: 'var(--accent)',
+          grid: 'var(--grid)',
+          card: 'var(--card-bg)'
+        },
+        fontFamily: {
+          sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --ink: #1A1D23;
+    --ink-soft: #5B5E66;
+    --line: #2B4C7E;
+    --accent: #B8791F;
+    --grid: #E1DED6;
+    --card-bg: #F1EFE9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171C;
+      --ink: #ECEAE4;
+      --ink-soft: #A2A5AD;
+      --line: #7FA6D9;
+      --accent: #E0A94A;
+      --grid: #2A2E36;
+      --card-bg: #1B1F26;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171C;
+    --ink: #ECEAE4;
+    --ink-soft: #A2A5AD;
+    --line: #7FA6D9;
+    --accent: #E0A94A;
+    --grid: #2A2E36;
+    --card-bg: #1B1F26;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+  }
+
+  .hidden-page { display: none; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--line);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased">
+
+<header class="border-b border-grid">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5">
+    <a href="#/" class="text-[15px] font-medium tracking-tight">Cadernos de Otimização</a>
+    <a href="#/" class="text-sm text-soft hover:text-ink transition-colors">Projetos</a>
+  </nav>
+</header>
+
+<main class="max-w-5xl mx-auto px-6">
+
+  <!-- ==================== HOME ==================== -->
+  <section data-page="home">
+
+    <div class="py-16 md:py-24">
+      <h1 class="text-3xl md:text-4xl leading-snug font-medium max-w-lg">
+        Um caderno com os experimentos da disciplina de Otimização com Metaheurísticas.
+      </h1>
+      <p class="mt-5 text-soft max-w-md leading-relaxed">
+        Aqui reúno as visualizações e os relatórios construídos ao longo do curso:
+        populações evoluindo geração a geração, curvas de convergência e comparações
+        entre heurísticas.
+      </p>
+      <button
+        onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})"
+        class="mt-8 text-sm border border-ink px-4 py-2 rounded hover:bg-ink hover:text-paper transition-colors"
+      >
+        Ver projetos
+      </button>
+    </div>
+
+    <div id="projetos" class="border-t border-grid pt-14 pb-24">
+      <h2 class="text-xl font-medium mb-8">Projetos</h2>
+
+      <div class="divide-y divide-grid">
+        <a href="#/tarefa-3" class="group flex gap-6 py-6">
+          <span class="font-mono text-sm text-soft pt-0.5">01</span>
+          <span>
+            <span class="block group-hover:text-line transition-colors">
+              Tarefa 3 — Algoritmos genéticos
+            </span>
+            <span class="block text-sm text-soft mt-1">
+              Implementação própria de um algoritmo genético para as funções de
+              Rosenbrock e Ackley, comparada com o GA da biblioteca pymoo.
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== TAREFA 3 ==================== -->
+  <section data-page="tarefa-3" class="hidden-page py-16">
+
+    <a href="#/" class="text-sm text-soft hover:text-ink transition-colors">‹ Voltar</a>
+
+    <h1 class="text-2xl md:text-3xl font-medium mt-6">Tarefa 3 — Algoritmos genéticos</h1>
+    <p class="font-mono text-xs text-soft mt-2">Otimização com Metaheurísticas</p>
+
+    <p class="mt-6 max-w-2xl text-soft leading-relaxed">
+      Implementação de um Algoritmo Genético do zero, com seleção por roleta ou torneio,
+      recombinação aritmética ou BLX-α, mutação uniforme e elitismo. O algoritmo foi
+      testado nas funções de Rosenbrock e de Ackley, e comparado ao GA pronto da
+      biblioteca <span class="font-mono text-[13px]">pymoo</span>.
+    </p>
+
+    <a
+      href="https://colab.research.google.com/drive/1GHQrNeskn4e4LIiYT6HJljWCjUWzgWP2?usp=sharing"
+      target="_blank" rel="noopener"
+      class="inline-block mt-4 text-sm text-line hover:underline"
+    >
+      Ver notebook no Google Colab
+    </a>
+
+    <div class="mt-14">
+      <p class="font-mono text-xs text-soft mb-3">Figura 1. Convergência — Torneio + BLX-α</p>
+      <div class="border border-dashed border-grid rounded bg-card min-h-[300px] flex items-center justify-center">
+        <p class="text-sm text-soft">Visualização em construção</p>
+      </div>
+    </div>
+
+    <div class="mt-14 mb-8">
+      <p class="font-mono text-xs text-soft mb-3">Figura 2. População ao longo das gerações</p>
+      <div class="border border-dashed border-grid rounded bg-card min-h-[320px] flex flex-col items-center justify-center gap-6 px-6">
+        <p class="text-sm text-soft">Visualização em construção</p>
+        <div class="w-full max-w-sm flex items-center gap-3 opacity-40 cursor-not-allowed" aria-disabled="true">
+          <span class="font-mono text-xs">Geração</span>
+          <input type="range" min="1" max="100" value="1" disabled class="w-full">
+          <span class="font-mono text-xs w-8 text-right">01</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="border-t border-grid">
+  <div class="max-w-5xl mx-auto px-6 py-8 font-mono text-xs text-soft">
+    Sylvio Helt
+  </div>
+</footer>
+
+<script>
+  function route() {
+    const known = ['home', 'tarefa-3'];
+    let page = location.hash.replace(/^#\/?/, '') || 'home';
+    if (!known.includes(page)) page = 'home';
+
+    document.querySelectorAll('[data-page]').forEach(function (el) {
+      el.classList.toggle('hidden-page', el.dataset.page !== page);
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  window.addEventListener('DOMContentLoaded', route);
+</script>
+
+</body>
+</html>
